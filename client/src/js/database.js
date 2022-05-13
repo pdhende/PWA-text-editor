@@ -18,9 +18,15 @@ export const putDb = async (content) => {
   
    const jateDB = await openDB('jate', 1);
 
-  // Transaction to interact with db
+  // Transaction to interact with db for performing operations like read/write
   const jateTransactn = jateDB.transaction('jate', 'readwrite');
 
+  // The object store 'jate' that is created on line 10 is accessed
+  const textObj = jateTransactn.objectStore('jate');
+
+  const newText = textObj.add({value : content});
+  const result = await newText;
+  console.log("Successfully saved the text!", result);
 }
 
 // TODO: Add logic for a method that gets all the content from the database
