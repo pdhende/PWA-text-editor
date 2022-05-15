@@ -27,7 +27,7 @@ export const putDb = async (content) => {
   const newText = textObj.add({value : content});
   const result = await newText;
   console.log("Successfully saved the text!", result);
-}
+};
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
@@ -41,6 +41,6 @@ export const getDb = async () => {
   const result = await allText;
   console.log('result.value', result);
   return result;
-}
+};
 
 initdb();
